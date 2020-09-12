@@ -1,0 +1,73 @@
+{
+    "required": [
+        "timestamp",
+        "path",
+        "status",
+        "error",
+        "message",
+        "requestId"
+    ],
+    "properties": {
+        "timestamp": {
+            "$id": "#/properties/timestamp",
+            "type": "integer",
+            "title": "The timestamp schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                1599842686277
+            ]
+        },
+        "path": {
+            "$id": "#/properties/path",
+            "type": "string",
+            "title": "The path schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "/ngsi-ld/v1/entities"
+            ]
+        },
+        "status": {
+            "$id": "#/properties/status",
+            "type": "integer",
+            "title": "The status schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                415
+            ]
+        },
+        "error": {
+            "$id": "#/properties/error",
+            "type": "string",
+            "title": "The error schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Unsupported Media Type"
+            ]
+        },
+        "message": {
+            "$id": "#/properties/message",
+            "type": "string",
+            "title": "The message schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "Content type '' not supported"
+            ]
+        },
+        "requestId": {
+            "$id": "#/properties/requestId",
+            "type": "string",
+            "title": "The requestId schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "9a15420d-86"
+            ]
+        }
+    },
+    "additionalProperties": true
+}
