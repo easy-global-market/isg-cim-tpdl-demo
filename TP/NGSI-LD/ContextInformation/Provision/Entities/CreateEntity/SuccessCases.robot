@@ -1,28 +1,29 @@
 *** Settings ***
-Documentation   TP description.
-Variables   ../../../../../resources/variables.py
+Documentation   Check that the IUT accepts the creation of an entity 
+Variables   ../../../../../../resources/variables.py
 Library     REST    ${url}
 Library     JSONSchemaLibrary   ${CURDIR}/schemas
 Library     OperatingSystem
 Library     String
 
-#Suite Setup 
-Suite Teardown  Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
-
 *** Variable ***
 ${endpoint}=    entities
+${id}=  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
 
 *** Test Case ***
-CreateEntity_200_Minimal
-    [Documentation]  TP Variation description.
+SuccessCases_MinimalEntity
+    [Documentation]  Create an entity with a JSON-LD payload containing the minimal information 
     [Tags]  critical  
     Create Entity  building-minimal.jsonld
     Check HTTP Status Code Is  201
+    Delete Entity by Id  ${id}
 
-CreateEntity_409_AlreadyExists
-    Create Entity  building-minimal.jsonld
-    Check HTTP Status Code Is  409
-    Check HTTP Response Body Json Schema Is  error_response
+SuccessCases_EntityWithSimpleProperties
+    [Documentation]  Create an entity with a JSON-LD payload containing only simple properties
+    Create Entity  building-simple-attributes.jsonld
+    Check HTTP Status Code Is  201
+    Delete Entity by Id  ${id}
+
 
 *** Keywords ***
 Create Entity  
@@ -35,8 +36,8 @@ Create Entity
 
 Check HTTP Status Code Is 
     [Arguments]  ${status}
-    ${response_status}=    convert to string    ${response['status']}
-    Should Be Equal    ${response_status}    ${status}
+    ${response_status}=  convert to string  ${response['status']}
+    Should Be Equal  ${response_status}  ${status}
 
 Check HTTP Response Body Json Schema Is
     [Arguments]  ${input}
