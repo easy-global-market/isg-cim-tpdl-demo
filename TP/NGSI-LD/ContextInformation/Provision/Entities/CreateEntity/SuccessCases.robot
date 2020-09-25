@@ -1,10 +1,8 @@
 *** Settings ***
 Documentation   Check that the IUT accepts the creation of an entity 
 Variables   ../../../../../../resources/variables.py
+#Resource    ../../../../../../resources/ApiUtils.resource
 Library     REST    ${url}
-Library     JSONSchemaLibrary   ${CURDIR}/schemas
-Library     OperatingSystem
-Library     String
 
 *** Variable ***
 ${endpoint}=    entities
@@ -38,13 +36,6 @@ Check HTTP Status Code Is
     [Arguments]  ${status}
     ${response_status}=  convert to string  ${response['status']}
     Should Be Equal  ${response_status}  ${status}
-
-Check HTTP Response Body Json Schema Is
-    [Arguments]  ${input}
-    Should Contain  ${response['headers']['Content-Type']}  application/json
-    ${schema}=  Catenate  SEPARATOR=  ${input}  .schema.json
-    Validate Json  ${schema}  ${response['body']}
-    Log  Json Schema Validation OK
 
 Delete Entity by Id
     [Arguments]  ${id}    

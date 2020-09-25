@@ -3,8 +3,6 @@ Documentation   Check that the IUT accepts the creation of an entity
 Variables   ../../../../../../resources/variables.py
 Library     REST    ${url}
 Library     JSONSchemaLibrary   ${CURDIR}/schemas
-Library     OperatingSystem
-Library     String
 
 Test Template  Create Entity Scenarios  
 

@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation   Check that the IUT refuses to create an entity if one exists with the same identifier 
 Variables   ../../../../../../resources/variables.py
+#Resource    ../../../../../../resources/ApiUtils.resource
 Library     REST    ${url}
 Library     JSONSchemaLibrary   ${CURDIR}/schemas
-Library     OperatingSystem
-Library     String
+Library     BuiltIn
 
 #Suite Setup      Create Entity  building-minimal.jsonld
 #Suite Teardown   Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
@@ -15,6 +15,7 @@ ${endpoint}=    entities
 *** Test Case ***
 AlreadyExists
     [Documentation]  Check that the IUT refuses to create an entity if one exists with the same identifier 
+    [Tags]  critical  
     Create Entity  building-minimal.jsonld
     Create Entity  building-minimal.jsonld
     Check HTTP Status Code Is  409

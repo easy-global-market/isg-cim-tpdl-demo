@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.1 (Python 3.7.5 on linux)" generated="20200915 17:08:34.860" rpa="false">
-<suite id="s1" name="SuccessCases" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/SuccessCases.robot">
-<test id="s1-t1" name="SuccessCases_MinimalEntity">
+<robot generator="Robot 3.2.1 (Python 3.7.5 on linux)" generated="20200925 12:44:21.325" rpa="false">
+<suite id="s1" name="Isg-Cim-Tpdl-Demo" source="/home/poliveira/git/isg-cim-tpdl-demo">
+<suite id="s1-s1" name="TP" source="/home/poliveira/git/isg-cim-tpdl-demo/TP">
+<suite id="s1-s1-s1" name="NGSI-LD" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD">
+<suite id="s1-s1-s1-s1" name="ContextInformation" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation">
+<suite id="s1-s1-s1-s1-s1" name="Provision" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision">
+<suite id="s1-s1-s1-s1-s1-s1" name="Entities" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities">
+<suite id="s1-s1-s1-s1-s1-s1-s1" name="CreateEntity" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity">
+<suite id="s1-s1-s1-s1-s1-s1-s1-s1" name="AlreadyExists" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/AlreadyExists.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-s1-t1" name="AlreadyExists">
 <kw name="Create Entity">
 <arguments>
 <arg>building-minimal.jsonld</arg>
@@ -15,8 +22,8 @@
 <assign>
 <var>&amp;{headers}</var>
 </assign>
-<msg timestamp="20200915 17:08:35.210" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
-<status status="PASS" starttime="20200915 17:08:35.209" endtime="20200915 17:08:35.210"></status>
+<msg timestamp="20200925 12:44:21.808" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:21.807" endtime="20200925 12:44:21.808"></status>
 </kw>
 <kw name="Post" library="REST">
 <tags>
@@ -31,8 +38,8 @@
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200915 17:08:35.846" level="INFO">${response} = {'seconds': 0.593465, 'status': 201, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Tue, 15 Sep 2020 16:08:35 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Location': '/ngsi-ld...</msg>
-<status status="PASS" starttime="20200915 17:08:35.211" endtime="20200915 17:08:35.846"></status>
+<msg timestamp="20200925 12:44:22.955" level="INFO">${response} = {'seconds': 0.050974, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:22 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:21.808" endtime="20200925 12:44:22.955"></status>
 </kw>
 <kw name="Output" library="REST">
 <tags>
@@ -42,7 +49,7 @@
 <arguments>
 <arg>request</arg>
 </arguments>
-<msg timestamp="20200915 17:08:35.847" level="INFO">
+<msg timestamp="20200925 12:44:22.956" level="INFO">
 {
     "method": "POST",
     "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
@@ -73,11 +80,11 @@
     "sslVerify": true,
     "allowRedirects": true,
     "timestamp": {
-        "utc": "2020-09-15T16:08:35.811145+00:00",
-        "local": "2020-09-15T17:08:35.811145+01:00"
+        "utc": "2020-09-25T11:44:22.864640+00:00",
+        "local": "2020-09-25T12:44:22.864640+01:00"
     }
 }</msg>
-<status status="PASS" starttime="20200915 17:08:35.846" endtime="20200915 17:08:35.854"></status>
+<status status="PASS" starttime="20200925 12:44:22.955" endtime="20200925 12:44:22.973"></status>
 </kw>
 <kw name="Output" library="REST">
 <tags>
@@ -87,38 +94,312 @@
 <arguments>
 <arg>response</arg>
 </arguments>
-<msg timestamp="20200915 17:08:35.855" level="INFO">
+<msg timestamp="20200925 12:44:22.974" level="INFO">
 {
-    "seconds": 0.593465,
-    "status": 201,
+    "seconds": 0.050974,
+    "status": 401,
     "body": "",
     "headers": {
         "Server": "nginx/1.14.2",
-        "Date": "Tue, 15 Sep 2020 16:08:35 GMT",
+        "Date": "Fri, 25 Sep 2020 11:44:22 GMT",
         "Content-Length": "0",
         "Connection": "keep-alive",
-        "Location": "/ngsi-ld/v1/entities/urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
         "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1 ; mode=block",
-        "Referrer-Policy": "no-referrer",
-        "Strict-Transport-Security": "max-age=31536000"
+        "Referrer-Policy": "no-referrer"
     }
 }</msg>
-<status status="PASS" starttime="20200915 17:08:35.854" endtime="20200915 17:08:35.855"></status>
+<status status="PASS" starttime="20200925 12:44:22.974" endtime="20200925 12:44:22.975"></status>
 </kw>
 <kw name="Set Test Variable" library="BuiltIn">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${response}</arg>
 </arguments>
-<msg timestamp="20200915 17:08:35.856" level="INFO">${response} = {'seconds': 0.593465, 'status': 201, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Tue, 15 Sep 2020 16:08:35 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Location': '/ngsi-ld...</msg>
-<status status="PASS" starttime="20200915 17:08:35.856" endtime="20200915 17:08:35.856"></status>
+<msg timestamp="20200925 12:44:22.977" level="INFO">${response} = {'seconds': 0.050974, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:22 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:22.976" endtime="20200925 12:44:22.977"></status>
 </kw>
-<status status="PASS" starttime="20200915 17:08:35.208" endtime="20200915 17:08:35.857"></status>
+<status status="PASS" starttime="20200925 12:44:21.806" endtime="20200925 12:44:22.977"></status>
+</kw>
+<kw name="Create Entity">
+<arguments>
+<arg>building-minimal.jsonld</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/ld+json</arg>
+<arg>authorization=Bearer ${token}</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200925 12:44:22.979" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:22.978" endtime="20200925 12:44:22.979"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${endpoint}</arg>
+<arg>body=/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/data/${filename}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.243" level="INFO">${response} = {'seconds': 0.25796800000000003, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authe...</msg>
+<status status="PASS" starttime="20200925 12:44:22.980" endtime="20200925 12:44:23.243"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.244" level="INFO">
+{
+    "method": "POST",
+    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
+    "scheme": "https",
+    "netloc": "stellio-dev.eglobalmark.com",
+    "path": "/ngsi-ld/v1/entities",
+    "query": {},
+    "body": {
+        "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "type": "Building",
+        "@context": [
+            "https://fiware.github.io/data-models/context.jsonld",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    },
+    "headers": {
+        "Accept": "application/json, */*",
+        "Content-Type": "application/ld+json",
+        "User-Agent": "RESTinstance/1.0.2",
+        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3YzktNjU0ZS00NDVjLWIwNjQtM2U4YzBkOTVjNzFjIiwiaXNzIjoiaHR0cHM6Ly9zc28uZWdsb2JhbG1hcmsuY29tL2F1dGgvcmVhbG1zL3N0ZWxsaW8tZGV2IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImYzZmVlOWFkLWI3NzItNDFmMy05ZmVmLTNhODIxODI3OTUwMyIsInR5cCI6IkJlYXJlciIsImF6cCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJzZXNzaW9uX3N0YXRlIjoiNzFiMGQ4N2QtZTZiOS00YTk0LTlkMDItOGQ2OTljMjQ1MzU0IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJzdGVsbGlvLWNyZWF0b3IiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidHRmLWNpbS11Yml3aGVyZSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJjbGllbnRIb3N0IjoiMTAuNS4xLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdHRmLWNpbS11Yml3aGVyZSIsImNsaWVudEFkZHJlc3MiOiIxMC41LjEuMSJ9.WdTawXIl2SKrlYvmba25fsE-2jbB5a2jhLcLqRbULwbEWyLBZMuRAnq3ArMRB9IxawlSn1fsMfaFvcsGbdBGjVUeC1XiVezHRYlTiwEZGETi5LUsLC6DocEM_Pk2drNQZJf1AiQmnVhJxb55BBQeOBtLDJomjvFAikzwo43JglL01h4CoCcxLnU2Iv3iiqFIsENJ_h-IVD9VMZdcTkvTS3hiD52nJ2XozR5UG8gqYf55Og5NBrKBtPo5pLZ6fuKwiHYdIsQlYV_EGuWrGwkmmCiNt_ZDO9szqPIKlz8zeASuuZgCigQcL6B59_kbv1-lbMGip5UQH9TJkdKU121lLA"
+    },
+    "proxies": {},
+    "timeout": [
+        null,
+        null
+    ],
+    "cert": null,
+    "sslVerify": true,
+    "allowRedirects": true,
+    "timestamp": {
+        "utc": "2020-09-25T11:44:23.241804+00:00",
+        "local": "2020-09-25T12:44:23.241804+01:00"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:23.244" endtime="20200925 12:44:23.246"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.247" level="INFO">
+{
+    "seconds": 0.25796800000000003,
+    "status": 401,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.14.2",
+        "Date": "Fri, 25 Sep 2020 11:44:23 GMT",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1 ; mode=block",
+        "Referrer-Policy": "no-referrer"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:23.246" endtime="20200925 12:44:23.250"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.251" level="INFO">${response} = {'seconds': 0.25796800000000003, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authe...</msg>
+<status status="PASS" starttime="20200925 12:44:23.250" endtime="20200925 12:44:23.251"></status>
+</kw>
+<status status="PASS" starttime="20200925 12:44:22.977" endtime="20200925 12:44:23.252"></status>
+</kw>
+<kw name="Check HTTP Status Code Is">
+<arguments>
+<arg>409</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response['status']}</arg>
+</arguments>
+<assign>
+<var>${response_status}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.256" level="INFO">${response_status} = 401</msg>
+<status status="PASS" starttime="20200925 12:44:23.253" endtime="20200925 12:44:23.256"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response_status}</arg>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.258" level="FAIL">401 != 409</msg>
+<status status="FAIL" starttime="20200925 12:44:23.256" endtime="20200925 12:44:23.258"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:23.252" endtime="20200925 12:44:23.258"></status>
+</kw>
+<doc>Check that the IUT refuses to create an entity if one exists with the same identifier</doc>
+<tags>
+<tag>critical</tag>
+</tags>
+<status status="FAIL" starttime="20200925 12:44:21.806" endtime="20200925 12:44:23.259" critical="yes">401 != 409</status>
+</test>
+<doc>Check that the IUT refuses to create an entity if one exists with the same identifier</doc>
+<status status="FAIL" starttime="20200925 12:44:21.371" endtime="20200925 12:44:23.261"></status>
+</suite>
+<suite id="s1-s1-s1-s1-s1-s1-s1-s2" name="SuccessCases-datadriven" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/SuccessCases-datadriven.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-s2-t1" name="SuccessCases_MinimalEntity">
+<kw name="Create Entity Scenarios">
+<arguments>
+<arg>building-minimal.jsonld</arg>
+</arguments>
+<kw name="Create Entity">
+<arguments>
+<arg>${filename}</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/ld+json</arg>
+<arg>authorization=Bearer ${token}</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.292" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:23.290" endtime="20200925 12:44:23.292"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${endpoint}</arg>
+<arg>body=/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/data/${filename}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.562" level="INFO">${response} = {'seconds': 0.254618, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:23.293" endtime="20200925 12:44:23.562"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.566" level="INFO">
+{
+    "method": "POST",
+    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
+    "scheme": "https",
+    "netloc": "stellio-dev.eglobalmark.com",
+    "path": "/ngsi-ld/v1/entities",
+    "query": {},
+    "body": {
+        "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "type": "Building",
+        "@context": [
+            "https://fiware.github.io/data-models/context.jsonld",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    },
+    "headers": {
+        "Accept": "application/json, */*",
+        "Content-Type": "application/ld+json",
+        "User-Agent": "RESTinstance/1.0.2",
+        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3YzktNjU0ZS00NDVjLWIwNjQtM2U4YzBkOTVjNzFjIiwiaXNzIjoiaHR0cHM6Ly9zc28uZWdsb2JhbG1hcmsuY29tL2F1dGgvcmVhbG1zL3N0ZWxsaW8tZGV2IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImYzZmVlOWFkLWI3NzItNDFmMy05ZmVmLTNhODIxODI3OTUwMyIsInR5cCI6IkJlYXJlciIsImF6cCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJzZXNzaW9uX3N0YXRlIjoiNzFiMGQ4N2QtZTZiOS00YTk0LTlkMDItOGQ2OTljMjQ1MzU0IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJzdGVsbGlvLWNyZWF0b3IiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidHRmLWNpbS11Yml3aGVyZSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJjbGllbnRIb3N0IjoiMTAuNS4xLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdHRmLWNpbS11Yml3aGVyZSIsImNsaWVudEFkZHJlc3MiOiIxMC41LjEuMSJ9.WdTawXIl2SKrlYvmba25fsE-2jbB5a2jhLcLqRbULwbEWyLBZMuRAnq3ArMRB9IxawlSn1fsMfaFvcsGbdBGjVUeC1XiVezHRYlTiwEZGETi5LUsLC6DocEM_Pk2drNQZJf1AiQmnVhJxb55BBQeOBtLDJomjvFAikzwo43JglL01h4CoCcxLnU2Iv3iiqFIsENJ_h-IVD9VMZdcTkvTS3hiD52nJ2XozR5UG8gqYf55Og5NBrKBtPo5pLZ6fuKwiHYdIsQlYV_EGuWrGwkmmCiNt_ZDO9szqPIKlz8zeASuuZgCigQcL6B59_kbv1-lbMGip5UQH9TJkdKU121lLA"
+    },
+    "proxies": {},
+    "timeout": [
+        null,
+        null
+    ],
+    "cert": null,
+    "sslVerify": true,
+    "allowRedirects": true,
+    "timestamp": {
+        "utc": "2020-09-25T11:44:23.558862+00:00",
+        "local": "2020-09-25T12:44:23.558862+01:00"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:23.563" endtime="20200925 12:44:23.572"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.574" level="INFO">
+{
+    "seconds": 0.254618,
+    "status": 401,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.14.2",
+        "Date": "Fri, 25 Sep 2020 11:44:23 GMT",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1 ; mode=block",
+        "Referrer-Policy": "no-referrer"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:23.573" endtime="20200925 12:44:23.577"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.579" level="INFO">${response} = {'seconds': 0.254618, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:23.577" endtime="20200925 12:44:23.579"></status>
+</kw>
+<status status="PASS" starttime="20200925 12:44:23.288" endtime="20200925 12:44:23.580"></status>
 </kw>
 <kw name="Check HTTP Status Code Is">
 <arguments>
@@ -132,8 +413,8 @@
 <assign>
 <var>${response_status}</var>
 </assign>
-<msg timestamp="20200915 17:08:35.858" level="INFO">${response_status} = 201</msg>
-<status status="PASS" starttime="20200915 17:08:35.857" endtime="20200915 17:08:35.858"></status>
+<msg timestamp="20200925 12:44:23.584" level="INFO">${response_status} = 401</msg>
+<status status="PASS" starttime="20200925 12:44:23.582" endtime="20200925 12:44:23.584"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -141,39 +422,51 @@
 <arg>${response_status}</arg>
 <arg>${status}</arg>
 </arguments>
-<status status="PASS" starttime="20200915 17:08:35.858" endtime="20200915 17:08:35.858"></status>
+<msg timestamp="20200925 12:44:23.586" level="FAIL">401 != 201</msg>
+<status status="FAIL" starttime="20200925 12:44:23.584" endtime="20200925 12:44:23.587"></status>
 </kw>
-<status status="PASS" starttime="20200915 17:08:35.857" endtime="20200915 17:08:35.859"></status>
+<status status="FAIL" starttime="20200925 12:44:23.580" endtime="20200925 12:44:23.587"></status>
 </kw>
-<kw name="Delete Entity by Id">
+<status status="FAIL" starttime="20200925 12:44:23.285" endtime="20200925 12:44:23.588"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:23.283" endtime="20200925 12:44:23.589" critical="yes">401 != 201</status>
+</test>
+<test id="s1-s1-s1-s1-s1-s1-s1-s2-t2" name="SuccessCases_EntityWithSimpleProperties">
+<kw name="Create Entity Scenarios">
 <arguments>
-<arg>${id}</arg>
+<arg>building-simple-attributes.jsonld</arg>
+</arguments>
+<kw name="Create Entity">
+<arguments>
+<arg>${filename}</arg>
 </arguments>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <arguments>
+<arg>Content-Type=application/ld+json</arg>
 <arg>authorization=Bearer ${token}</arg>
 </arguments>
 <assign>
 <var>&amp;{headers}</var>
 </assign>
-<msg timestamp="20200915 17:08:35.860" level="INFO">&amp;{headers} = { authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3Y...</msg>
-<status status="PASS" starttime="20200915 17:08:35.859" endtime="20200915 17:08:35.860"></status>
+<msg timestamp="20200925 12:44:23.597" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:23.595" endtime="20200925 12:44:23.598"></status>
 </kw>
-<kw name="Delete" library="REST">
+<kw name="Post" library="REST">
 <tags>
 <tag>http</tag>
 </tags>
-<doc>*Sends a DELETE request to the endpoint.*</doc>
+<doc>*Sends a POST request to the endpoint.*</doc>
 <arguments>
-<arg>${endpoint}/${id}</arg>
+<arg>${endpoint}</arg>
+<arg>body=/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/data/${filename}</arg>
 <arg>headers=${headers}</arg>
 </arguments>
 <assign>
 <var>${response}</var>
 </assign>
-<msg timestamp="20200915 17:08:36.183" level="INFO">${response} = {'seconds': 0.31529399999999996, 'status': 204, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Tue, 15 Sep 2020 16:08:36 GMT', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache, no-st...</msg>
-<status status="PASS" starttime="20200915 17:08:35.860" endtime="20200915 17:08:36.184"></status>
+<msg timestamp="20200925 12:44:23.891" level="INFO">${response} = {'seconds': 0.27192, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': 'B...</msg>
+<status status="PASS" starttime="20200925 12:44:23.599" endtime="20200925 12:44:23.891"></status>
 </kw>
 <kw name="Output" library="REST">
 <tags>
@@ -183,18 +476,45 @@
 <arguments>
 <arg>request</arg>
 </arguments>
-<msg timestamp="20200915 17:08:36.186" level="INFO">
+<msg timestamp="20200925 12:44:23.893" level="INFO">
 {
-    "method": "DELETE",
-    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities/urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+    "method": "POST",
+    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
     "scheme": "https",
     "netloc": "stellio-dev.eglobalmark.com",
-    "path": "/ngsi-ld/v1/entities/urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+    "path": "/ngsi-ld/v1/entities",
     "query": {},
-    "body": null,
+    "body": {
+        "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "type": "Building",
+        "name": {
+            "type": "Property",
+            "value": "Eiffel Tower"
+        },
+        "subCategory": {
+            "type": "Property",
+            "value": [
+                "tourism"
+            ]
+        },
+        "airQualityLevel": {
+            "type": "Property",
+            "value": 4,
+            "unitCode": "C62",
+            "observedAt": "2020-09-09T16:40:00.000Z"
+        },
+        "almostFull": {
+            "type": "Property",
+            "value": false
+        },
+        "@context": [
+            "https://fiware.github.io/data-models/context.jsonld",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    },
     "headers": {
         "Accept": "application/json, */*",
-        "Content-Type": "application/json",
+        "Content-Type": "application/ld+json",
         "User-Agent": "RESTinstance/1.0.2",
         "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3YzktNjU0ZS00NDVjLWIwNjQtM2U4YzBkOTVjNzFjIiwiaXNzIjoiaHR0cHM6Ly9zc28uZWdsb2JhbG1hcmsuY29tL2F1dGgvcmVhbG1zL3N0ZWxsaW8tZGV2IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImYzZmVlOWFkLWI3NzItNDFmMy05ZmVmLTNhODIxODI3OTUwMyIsInR5cCI6IkJlYXJlciIsImF6cCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJzZXNzaW9uX3N0YXRlIjoiNzFiMGQ4N2QtZTZiOS00YTk0LTlkMDItOGQ2OTljMjQ1MzU0IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJzdGVsbGlvLWNyZWF0b3IiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidHRmLWNpbS11Yml3aGVyZSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJjbGllbnRIb3N0IjoiMTAuNS4xLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdHRmLWNpbS11Yml3aGVyZSIsImNsaWVudEFkZHJlc3MiOiIxMC41LjEuMSJ9.WdTawXIl2SKrlYvmba25fsE-2jbB5a2jhLcLqRbULwbEWyLBZMuRAnq3ArMRB9IxawlSn1fsMfaFvcsGbdBGjVUeC1XiVezHRYlTiwEZGETi5LUsLC6DocEM_Pk2drNQZJf1AiQmnVhJxb55BBQeOBtLDJomjvFAikzwo43JglL01h4CoCcxLnU2Iv3iiqFIsENJ_h-IVD9VMZdcTkvTS3hiD52nJ2XozR5UG8gqYf55Og5NBrKBtPo5pLZ6fuKwiHYdIsQlYV_EGuWrGwkmmCiNt_ZDO9szqPIKlz8zeASuuZgCigQcL6B59_kbv1-lbMGip5UQH9TJkdKU121lLA"
     },
@@ -207,11 +527,11 @@
     "sslVerify": true,
     "allowRedirects": true,
     "timestamp": {
-        "utc": "2020-09-15T16:08:36.179966+00:00",
-        "local": "2020-09-15T17:08:36.179966+01:00"
+        "utc": "2020-09-25T11:44:23.886901+00:00",
+        "local": "2020-09-25T12:44:23.886901+01:00"
     }
 }</msg>
-<status status="PASS" starttime="20200915 17:08:36.185" endtime="20200915 17:08:36.190"></status>
+<status status="PASS" starttime="20200925 12:44:23.891" endtime="20200925 12:44:23.901"></status>
 </kw>
 <kw name="Output" library="REST">
 <tags>
@@ -221,48 +541,425 @@
 <arguments>
 <arg>response</arg>
 </arguments>
-<msg timestamp="20200915 17:08:36.192" level="INFO">
+<msg timestamp="20200925 12:44:23.903" level="INFO">
 {
-    "seconds": 0.31529399999999996,
-    "status": 204,
+    "seconds": 0.27192,
+    "status": 401,
     "body": "",
     "headers": {
         "Server": "nginx/1.14.2",
-        "Date": "Tue, 15 Sep 2020 16:08:36 GMT",
+        "Date": "Fri, 25 Sep 2020 11:44:23 GMT",
+        "Content-Length": "0",
         "Connection": "keep-alive",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
         "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
         "Pragma": "no-cache",
         "Expires": "0",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1 ; mode=block",
-        "Referrer-Policy": "no-referrer",
-        "Strict-Transport-Security": "max-age=31536000"
+        "Referrer-Policy": "no-referrer"
     }
 }</msg>
-<status status="PASS" starttime="20200915 17:08:36.191" endtime="20200915 17:08:36.195"></status>
+<status status="PASS" starttime="20200925 12:44:23.901" endtime="20200925 12:44:23.906"></status>
 </kw>
-<status status="PASS" starttime="20200915 17:08:35.859" endtime="20200915 17:08:36.195"></status>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.908" level="INFO">${response} = {'seconds': 0.27192, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:23 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': 'B...</msg>
+<status status="PASS" starttime="20200925 12:44:23.907" endtime="20200925 12:44:23.909"></status>
+</kw>
+<status status="PASS" starttime="20200925 12:44:23.594" endtime="20200925 12:44:23.909"></status>
+</kw>
+<kw name="Check HTTP Status Code Is">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response['status']}</arg>
+</arguments>
+<assign>
+<var>${response_status}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.914" level="INFO">${response_status} = 401</msg>
+<status status="PASS" starttime="20200925 12:44:23.911" endtime="20200925 12:44:23.914"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response_status}</arg>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:23.918" level="FAIL">401 != 201</msg>
+<status status="FAIL" starttime="20200925 12:44:23.915" endtime="20200925 12:44:23.919"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:23.910" endtime="20200925 12:44:23.921"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:23.592" endtime="20200925 12:44:23.923"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:23.590" endtime="20200925 12:44:23.924" critical="yes">401 != 201</status>
+</test>
+<doc>Check that the IUT accepts the creation of an entity</doc>
+<status status="FAIL" starttime="20200925 12:44:23.267" endtime="20200925 12:44:23.927"></status>
+</suite>
+<suite id="s1-s1-s1-s1-s1-s1-s1-s3" name="SuccessCases" source="/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/SuccessCases.robot">
+<test id="s1-s1-s1-s1-s1-s1-s1-s3-t1" name="SuccessCases_MinimalEntity">
+<kw name="Create Entity">
+<arguments>
+<arg>building-minimal.jsonld</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/ld+json</arg>
+<arg>authorization=Bearer ${token}</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200925 12:44:23.971" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:23.968" endtime="20200925 12:44:23.971"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${endpoint}</arg>
+<arg>body=/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/data/${filename}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 12:44:24.244" level="INFO">${response} = {'seconds': 0.252307, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:24 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:23.972" endtime="20200925 12:44:24.244"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.246" level="INFO">
+{
+    "method": "POST",
+    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
+    "scheme": "https",
+    "netloc": "stellio-dev.eglobalmark.com",
+    "path": "/ngsi-ld/v1/entities",
+    "query": {},
+    "body": {
+        "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "type": "Building",
+        "@context": [
+            "https://fiware.github.io/data-models/context.jsonld",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    },
+    "headers": {
+        "Accept": "application/json, */*",
+        "Content-Type": "application/ld+json",
+        "User-Agent": "RESTinstance/1.0.2",
+        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3YzktNjU0ZS00NDVjLWIwNjQtM2U4YzBkOTVjNzFjIiwiaXNzIjoiaHR0cHM6Ly9zc28uZWdsb2JhbG1hcmsuY29tL2F1dGgvcmVhbG1zL3N0ZWxsaW8tZGV2IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImYzZmVlOWFkLWI3NzItNDFmMy05ZmVmLTNhODIxODI3OTUwMyIsInR5cCI6IkJlYXJlciIsImF6cCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJzZXNzaW9uX3N0YXRlIjoiNzFiMGQ4N2QtZTZiOS00YTk0LTlkMDItOGQ2OTljMjQ1MzU0IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJzdGVsbGlvLWNyZWF0b3IiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidHRmLWNpbS11Yml3aGVyZSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJjbGllbnRIb3N0IjoiMTAuNS4xLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdHRmLWNpbS11Yml3aGVyZSIsImNsaWVudEFkZHJlc3MiOiIxMC41LjEuMSJ9.WdTawXIl2SKrlYvmba25fsE-2jbB5a2jhLcLqRbULwbEWyLBZMuRAnq3ArMRB9IxawlSn1fsMfaFvcsGbdBGjVUeC1XiVezHRYlTiwEZGETi5LUsLC6DocEM_Pk2drNQZJf1AiQmnVhJxb55BBQeOBtLDJomjvFAikzwo43JglL01h4CoCcxLnU2Iv3iiqFIsENJ_h-IVD9VMZdcTkvTS3hiD52nJ2XozR5UG8gqYf55Og5NBrKBtPo5pLZ6fuKwiHYdIsQlYV_EGuWrGwkmmCiNt_ZDO9szqPIKlz8zeASuuZgCigQcL6B59_kbv1-lbMGip5UQH9TJkdKU121lLA"
+    },
+    "proxies": {},
+    "timeout": [
+        null,
+        null
+    ],
+    "cert": null,
+    "sslVerify": true,
+    "allowRedirects": true,
+    "timestamp": {
+        "utc": "2020-09-25T11:44:24.239587+00:00",
+        "local": "2020-09-25T12:44:24.239587+01:00"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:24.245" endtime="20200925 12:44:24.253"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.257" level="INFO">
+{
+    "seconds": 0.252307,
+    "status": 401,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.14.2",
+        "Date": "Fri, 25 Sep 2020 11:44:24 GMT",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1 ; mode=block",
+        "Referrer-Policy": "no-referrer"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:24.255" endtime="20200925 12:44:24.265"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.270" level="INFO">${response} = {'seconds': 0.252307, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:24 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:24.266" endtime="20200925 12:44:24.271"></status>
+</kw>
+<status status="PASS" starttime="20200925 12:44:23.966" endtime="20200925 12:44:24.272"></status>
+</kw>
+<kw name="Check HTTP Status Code Is">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response['status']}</arg>
+</arguments>
+<assign>
+<var>${response_status}</var>
+</assign>
+<msg timestamp="20200925 12:44:24.279" level="INFO">${response_status} = 401</msg>
+<status status="PASS" starttime="20200925 12:44:24.276" endtime="20200925 12:44:24.279"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response_status}</arg>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.282" level="FAIL">401 != 201</msg>
+<status status="FAIL" starttime="20200925 12:44:24.280" endtime="20200925 12:44:24.283"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:24.273" endtime="20200925 12:44:24.284"></status>
 </kw>
 <doc>Create an entity with a JSON-LD payload containing the minimal information</doc>
 <tags>
 <tag>critical</tag>
 </tags>
-<status status="PASS" starttime="20200915 17:08:35.207" endtime="20200915 17:08:36.196" critical="yes"></status>
+<status status="FAIL" starttime="20200925 12:44:23.962" endtime="20200925 12:44:24.287" critical="yes">401 != 201</status>
+</test>
+<test id="s1-s1-s1-s1-s1-s1-s1-s3-t2" name="SuccessCases_EntityWithSimpleProperties">
+<kw name="Create Entity">
+<arguments>
+<arg>building-simple-attributes.jsonld</arg>
+</arguments>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=application/ld+json</arg>
+<arg>authorization=Bearer ${token}</arg>
+</arguments>
+<assign>
+<var>&amp;{headers}</var>
+</assign>
+<msg timestamp="20200925 12:44:24.304" level="INFO">&amp;{headers} = { Content-Type=application/ld+json | authorization=Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdC...</msg>
+<status status="PASS" starttime="20200925 12:44:24.299" endtime="20200925 12:44:24.305"></status>
+</kw>
+<kw name="Post" library="REST">
+<tags>
+<tag>http</tag>
+</tags>
+<doc>*Sends a POST request to the endpoint.*</doc>
+<arguments>
+<arg>${endpoint}</arg>
+<arg>body=/home/poliveira/git/isg-cim-tpdl-demo/TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/data/${filename}</arg>
+<arg>headers=${headers}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20200925 12:44:24.601" level="INFO">${response} = {'seconds': 0.267836, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:24 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:24.306" endtime="20200925 12:44:24.602"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>request</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.605" level="INFO">
+{
+    "method": "POST",
+    "url": "https://stellio-dev.eglobalmark.com/ngsi-ld/v1/entities",
+    "scheme": "https",
+    "netloc": "stellio-dev.eglobalmark.com",
+    "path": "/ngsi-ld/v1/entities",
+    "query": {},
+    "body": {
+        "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9",
+        "type": "Building",
+        "name": {
+            "type": "Property",
+            "value": "Eiffel Tower"
+        },
+        "subCategory": {
+            "type": "Property",
+            "value": [
+                "tourism"
+            ]
+        },
+        "airQualityLevel": {
+            "type": "Property",
+            "value": 4,
+            "unitCode": "C62",
+            "observedAt": "2020-09-09T16:40:00.000Z"
+        },
+        "almostFull": {
+            "type": "Property",
+            "value": false
+        },
+        "@context": [
+            "https://fiware.github.io/data-models/context.jsonld",
+            "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+        ]
+    },
+    "headers": {
+        "Accept": "application/json, */*",
+        "Content-Type": "application/ld+json",
+        "User-Agent": "RESTinstance/1.0.2",
+        "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIS0xvcnlIcDN6VHlOY0EtNWYwQ19iVC1hbm5ldDFLSUhFT0U1VnN1NjRrIn0.eyJleHAiOjE2MDA3MDI2MjUsImlhdCI6MTU5OTgzODYyNSwianRpIjoiMDNmYTA3YzktNjU0ZS00NDVjLWIwNjQtM2U4YzBkOTVjNzFjIiwiaXNzIjoiaHR0cHM6Ly9zc28uZWdsb2JhbG1hcmsuY29tL2F1dGgvcmVhbG1zL3N0ZWxsaW8tZGV2IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImYzZmVlOWFkLWI3NzItNDFmMy05ZmVmLTNhODIxODI3OTUwMyIsInR5cCI6IkJlYXJlciIsImF6cCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJzZXNzaW9uX3N0YXRlIjoiNzFiMGQ4N2QtZTZiOS00YTk0LTlkMDItOGQ2OTljMjQ1MzU0IiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJzdGVsbGlvLWNyZWF0b3IiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsidHRmLWNpbS11Yml3aGVyZSI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6InR0Zi1jaW0tdWJpd2hlcmUiLCJjbGllbnRIb3N0IjoiMTAuNS4xLjEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdHRmLWNpbS11Yml3aGVyZSIsImNsaWVudEFkZHJlc3MiOiIxMC41LjEuMSJ9.WdTawXIl2SKrlYvmba25fsE-2jbB5a2jhLcLqRbULwbEWyLBZMuRAnq3ArMRB9IxawlSn1fsMfaFvcsGbdBGjVUeC1XiVezHRYlTiwEZGETi5LUsLC6DocEM_Pk2drNQZJf1AiQmnVhJxb55BBQeOBtLDJomjvFAikzwo43JglL01h4CoCcxLnU2Iv3iiqFIsENJ_h-IVD9VMZdcTkvTS3hiD52nJ2XozR5UG8gqYf55Og5NBrKBtPo5pLZ6fuKwiHYdIsQlYV_EGuWrGwkmmCiNt_ZDO9szqPIKlz8zeASuuZgCigQcL6B59_kbv1-lbMGip5UQH9TJkdKU121lLA"
+    },
+    "proxies": {},
+    "timeout": [
+        null,
+        null
+    ],
+    "cert": null,
+    "sslVerify": true,
+    "allowRedirects": true,
+    "timestamp": {
+        "utc": "2020-09-25T11:44:24.596363+00:00",
+        "local": "2020-09-25T12:44:24.596363+01:00"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:24.603" endtime="20200925 12:44:24.613"></status>
+</kw>
+<kw name="Output" library="REST">
+<tags>
+<tag>I/O</tag>
+</tags>
+<doc>*Outputs JSON to terminal or a file.*</doc>
+<arguments>
+<arg>response</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.617" level="INFO">
+{
+    "seconds": 0.267836,
+    "status": 401,
+    "body": "",
+    "headers": {
+        "Server": "nginx/1.14.2",
+        "Date": "Fri, 25 Sep 2020 11:44:24 GMT",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "WWW-Authenticate": "Bearer error=\"invalid_token\", error_description=\"Jwt expired at 2020-09-21T15:37:05Z\", error_uri=\"https://tools.ietf.org/html/rfc6750#section-3.1\"",
+        "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "X-XSS-Protection": "1 ; mode=block",
+        "Referrer-Policy": "no-referrer"
+    }
+}</msg>
+<status status="PASS" starttime="20200925 12:44:24.614" endtime="20200925 12:44:24.623"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.628" level="INFO">${response} = {'seconds': 0.267836, 'status': 401, 'body': '', 'headers': {'Server': 'nginx/1.14.2', 'Date': 'Fri, 25 Sep 2020 11:44:24 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'WWW-Authenticate': '...</msg>
+<status status="PASS" starttime="20200925 12:44:24.624" endtime="20200925 12:44:24.629"></status>
+</kw>
+<status status="PASS" starttime="20200925 12:44:24.296" endtime="20200925 12:44:24.632"></status>
+</kw>
+<kw name="Check HTTP Status Code Is">
+<arguments>
+<arg>201</arg>
+</arguments>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response['status']}</arg>
+</arguments>
+<assign>
+<var>${response_status}</var>
+</assign>
+<msg timestamp="20200925 12:44:24.640" level="INFO">${response_status} = 401</msg>
+<status status="PASS" starttime="20200925 12:44:24.636" endtime="20200925 12:44:24.641"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${response_status}</arg>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20200925 12:44:24.645" level="FAIL">401 != 201</msg>
+<status status="FAIL" starttime="20200925 12:44:24.642" endtime="20200925 12:44:24.646"></status>
+</kw>
+<status status="FAIL" starttime="20200925 12:44:24.633" endtime="20200925 12:44:24.647"></status>
+</kw>
+<doc>Create an entity with a JSON-LD payload containing only simple properties</doc>
+<status status="FAIL" starttime="20200925 12:44:24.291" endtime="20200925 12:44:24.649" critical="yes">401 != 201</status>
 </test>
 <doc>Check that the IUT accepts the creation of an entity</doc>
-<status status="PASS" starttime="20200915 17:08:34.861" endtime="20200915 17:08:36.199"></status>
+<status status="FAIL" starttime="20200925 12:44:23.936" endtime="20200925 12:44:24.654"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.366" endtime="20200925 12:44:24.673"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.362" endtime="20200925 12:44:24.698"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.360" endtime="20200925 12:44:24.712"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.357" endtime="20200925 12:44:24.724"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.355" endtime="20200925 12:44:24.729"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.353" endtime="20200925 12:44:24.737"></status>
+</suite>
+<status status="FAIL" starttime="20200925 12:44:21.326" endtime="20200925 12:44:24.743"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="0" fail="5">Critical Tests</stat>
+<stat pass="0" fail="5">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">critical</stat>
+<stat pass="0" fail="2">critical</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="SuccessCases">SuccessCases</stat>
+<stat pass="0" fail="5" id="s1" name="Isg-Cim-Tpdl-Demo">Isg-Cim-Tpdl-Demo</stat>
+<stat pass="0" fail="5" id="s1-s1" name="TP">Isg-Cim-Tpdl-Demo.TP</stat>
+<stat pass="0" fail="5" id="s1-s1-s1" name="NGSI-LD">Isg-Cim-Tpdl-Demo.TP.NGSI-LD</stat>
+<stat pass="0" fail="5" id="s1-s1-s1-s1" name="ContextInformation">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation</stat>
+<stat pass="0" fail="5" id="s1-s1-s1-s1-s1" name="Provision">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision</stat>
+<stat pass="0" fail="5" id="s1-s1-s1-s1-s1-s1" name="Entities">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision.Entities</stat>
+<stat pass="0" fail="5" id="s1-s1-s1-s1-s1-s1-s1" name="CreateEntity">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision.Entities.CreateEntity</stat>
+<stat pass="0" fail="1" id="s1-s1-s1-s1-s1-s1-s1-s1" name="AlreadyExists">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision.Entities.CreateEntity.AlreadyExists</stat>
+<stat pass="0" fail="2" id="s1-s1-s1-s1-s1-s1-s1-s2" name="SuccessCases-datadriven">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision.Entities.CreateEntity.SuccessCases-datadriven</stat>
+<stat pass="0" fail="2" id="s1-s1-s1-s1-s1-s1-s1-s3" name="SuccessCases">Isg-Cim-Tpdl-Demo.TP.NGSI-LD.ContextInformation.Provision.Entities.CreateEntity.SuccessCases</stat>
 </suite>
 </statistics>
 <errors>

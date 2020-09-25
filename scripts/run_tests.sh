@@ -17,7 +17,11 @@ robot --outputdir ./results .
 #robot --outputdir ./results ./TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/SuccessCases.robot
 
 #run specific test case
+#robot --outputdir ./results -t "SuccessCases_MinimalEntity"
 #robot --outputdir ./results -t "SuccessCases_MinimalEntity" ./TP/NGSI-LD/ContextInformation/Provision/Entities/CreateEntity/SuccessCases.robot
 
 #rerun failed tests
 #robot --rerunfailedsuites ./results/output.xml  --outputdir ./results .
+
+#stop the suite after a failed test
+robot --exitonfailure --outputdir ./results . 
