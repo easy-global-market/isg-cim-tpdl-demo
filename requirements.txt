@@ -1,3 +1,5 @@
 robotframework==3.2.1
 RESTinstance==1.0.2
 robotframework-jsonschemalibrary==1.0
+robotframework-mqttlibrary==0.7.0
+robotframework-httpctrl==0.1.6

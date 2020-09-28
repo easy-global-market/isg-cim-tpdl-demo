@@ -27,6 +27,10 @@ Browse the base project root folder and execute the following command:
 
 Further details on each library can be found in [PyPi](https://pypi.org/) and [Robot Framework Standard Libraries](http://robotframework.org/robotframework/#standard-libraries)
 
+#### Run the MQTT broker
+```$ docker pull eclipse-mosquitto```  
+```$ docker run -d -p 1883:1883 eclipse-mosquitto```
+
 #### Execute the tests
 ```$ robot --outputdir ./results .```   
 
