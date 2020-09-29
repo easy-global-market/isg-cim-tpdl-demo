@@ -5,5 +5,5 @@ Resource    ../resources/${binding}.resource
 Test Timeout  30 seconds
 
 *** Test Case ***
-Test ${binding} binding
-    Check notification
+Test notify ${binding} Broker
+   Notify Broker
