@@ -1,4 +1,5 @@
 *** Settings ***
+Documentation  Subscribe async, publish 1 message, listen for and validate it is received
 Variables    ./variables.py
 Library    MQTTLibrary
 
@@ -13,18 +14,19 @@ ${client.id}=  mqtt.test.client
 ${topic}=  test/mqtt_test
 
 *** Keywords ***
-Notify Broker
-    [Documentation]  Subscribe async, publish 1 message, listen for and validate it is received
+Connect to broker
     ${time}=  Get Time  epoch
     ${client}=  Catenate  SEPARATOR=.  robot.mqtt  ${time}
-    ${topic}=  Set Variable  test/mqtt_test_sub
     
     #Subscribe topic async (with background looping)
     Subscribe Async  client.id=${client}  topic=${topic}
-    
-    #Publish one message to MQTT Broker
+
+Notify broker
+     #Publish one message to MQTT Broker
     Publish to MQTT Broker  topic=${topic}  message=test message  qos=1
-    
+
+Wait for notification and validate it
+        
     #Listen to the topic and return a list of message payloads received within the specified time
     #.. Requires an async Subscribe to have been called previously
     @{messages}=  Listen and Get Messages  topic=${topic}
@@ -34,9 +36,11 @@ Notify Broker
     Length Should Be  ${messages}  1
     Should Be Equal As Strings  ${messages}[0]  test message
 
+Discconect from broker 
     #Unsubscribe the client from the specified topic
     #Disconnect from MQTT Broker
-    [Teardown]  Unsubscribe and Disconnect  ${topic}
+    Unsubscribe and Disconnect  ${topic}  
+
 
 Subscribe Async
     [Arguments]  ${broker.uri}=${broker.uri}  ${port}=${broker.port}  ${client.id}=${client.id}  ${topic}=${topic}  ${qos}=1  ${timeout}=0s  ${limit}=1
