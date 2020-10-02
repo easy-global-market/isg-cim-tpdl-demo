@@ -60,4 +60,4 @@ Listen and Get Messages
 Unsubscribe and Disconnect
     [Arguments]  ${topic}=${topic}
     Unsubscribe  ${topic}
-    [Teardown]  Disconnect
+    Disconnect
