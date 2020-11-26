@@ -1,9 +1,9 @@
 *** Settings ***
 Documentation   Check that the IUT refuses to create an entity if one exists with the same identifier 
 Variables   ../../../../../../resources/variables.py
-#Resource    ../../../../../../resources/ApiUtils.resource
+Resource    ../../../../../../resources/ApiUtils.resource
 Library     REST    ${url}
-Library     JSONSchemaLibrary   ${CURDIR}/schemas
+Library     JSONSchemaLibrary   ${EXECDIR}/schemas
 Library     BuiltIn
 
 #Suite Setup      Create Entity  building-minimal.jsonld
@@ -20,13 +20,12 @@ AlreadyExists
     Create Entity  building-minimal.jsonld
     Check HTTP Status Code Is  409
     Check HTTP Response Body Json Schema Is  error_response
-    Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
 
 *** Keywords ***
 Create Entity  
     [Arguments]  ${filename}    
-    &{headers}=  Create Dictionary  Content-Type=application/ld+json    authorization=Bearer ${token}
-    ${response}=  POST  ${endpoint}  body=${CURDIR}/data/${filename}  headers=${headers}  
+    &{headers}=  Create Dictionary  Content-Type=application/ld+json
+    ${response}=  POST  ${endpoint}  body=${EXECDIR}/data/${filename}  headers=${headers}  
     Output  request
     Output  response
     Set Test Variable  ${response}
@@ -45,7 +44,6 @@ Check HTTP Response Body Json Schema Is
 
 Delete Entity by Id
     [Arguments]  ${id}    
-    &{headers}=  Create Dictionary  authorization=Bearer ${token}
-    ${response}=  DELETE  ${endpoint}/${id}  headers=${headers}  
+    ${response}=  DELETE  ${endpoint}/${id}
     Output  request
     Output  response
