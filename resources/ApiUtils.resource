@@ -36,3 +36,26 @@ Delete Entity by Id
     ${response}=  DELETE  ${endpoint}/${id}
     Output  request
     Output  response
+
+Create Entity
+    [Arguments]  ${filename}
+    &{headers}=  Create Dictionary  Content-Type=application/ld+json
+    ${response}=  POST  ${endpoint}  body=${EXECDIR}/data/entities/${filename}  headers=${headers}
+    Output  request
+    Output  response
+
+Batch Create Entities
+    [Arguments]  @{entities_to_be_created}
+    &{headers}=  Create Dictionary  Content-Type=application/ld+json
+    ${response}=  POST  ${batch_endpoint}  body=@{entities_to_be_created}  headers=${headers}
+    Output  request
+    Output  response
+    Set Test Variable  ${response}
+
+Batch Create Entities With File
+    [Arguments]  ${filename}
+    &{headers}=  Create Dictionary  Content-Type=application/ld+json
+    ${response}=  POST  ${batch_endpoint}  body=${EXECDIR}/data/entities/${filename}  headers=${headers}
+    Output  request
+    Output  response
+    Set Test Variable  ${response}

@@ -64,12 +64,3 @@ Create batch of entities having multiple attributes
     #TODO call Batch Delete Entities
     Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
     Delete Entity by Id  urn:ngsi-ld:Building:56hy789-eft6-9987-be54-adr45nf567ddz
-
-*** Keywords ***
-Batch Create Entities
-    [Arguments]  @{entities_to_be_created}
-    &{headers}=  Create Dictionary  Content-Type=application/ld+json
-    ${response}=  POST  ${batch_endpoint}  body=@{entities_to_be_created}  headers=${headers}
-    Output  request
-    Output  response
-    Set Test Variable  ${response}
