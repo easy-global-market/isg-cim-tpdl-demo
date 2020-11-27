@@ -2,34 +2,39 @@
 Documentation   Check that you can create a batch of entities
 Variables   ../../../../../../resources/variables.py
 Resource    ../../../../../../resources/ApiUtils.resource
-Library     REST    ${url}
+Library     REST    $url
 Library     JSONSchemaLibrary   ${EXECDIR}/schemas
 Library     BuiltIn
 Library     OperatingSystem
 
 
 *** Variable ***
-${endpoint}=    entityOperations/create
+${batch_endpoint}=    entityOperations/create
+${endpoint}=    entities
 
 *** Test Case ***
-AlreadyExists
+Create batch of entities
     [Documentation]  Check that you can create a batch of entities
     [Tags]  critical
-    Batch Create Entities   filename=building-minimal.jsonld    filename_2=building-minimal-2.jsonld
+
+    ${first_minimal_entity}=    Get File    ${EXECDIR}/data/building-minimal.jsonld
+    ${second_minimal_entity}=    Get File    ${EXECDIR}/data/building-minimal-2.jsonld
+    ${first_minimal_entity_parsed}=    evaluate    json.loads($first_minimal_entity)    json
+    ${second_minimal_entity_parsed}=    evaluate    json.loads($second_minimal_entity)    json
+
+    @{entities_to_be_created}=  Create List   ${first_minimal_entity_parsed}     ${second_minimal_entity_parsed}
+    Batch Create Entities   @{entities_to_be_created}
+
     Check HTTP Status Code Is  201
-    # it will be replaced by on call Batch Delete Entities
+    #TODO call Batch Delete Entities
     Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
     Delete Entity by Id  urn:ngsi-ld:Building:56hy789-eft6-9987-be54-adr45nf567ddz
 
 *** Keywords ***
 Batch Create Entities
-    [Arguments]  ${filename}    ${filename_2}
+    [Arguments]  @{entities_to_be_created}
     &{headers}=  Create Dictionary  Content-Type=application/ld+json
-    ${file_content}=    Get File    ${EXECDIR}/data/${filename}
-    ${file_content_2}=    Get File    ${EXECDIR}/data/${filename_2}
-    ${body}=  Create List   ${file_content}     ${file_content_2}
-    log  ${body}
-    ${response}=  POST  ${endpoint}  body=${body}  headers=${headers}
+    ${response}=  POST  ${batch_endpoint}  body=@{entities_to_be_created}  headers=${headers}
     Output  request
     Output  response
     Set Test Variable  ${response}

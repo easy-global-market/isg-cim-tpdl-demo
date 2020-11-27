@@ -18,8 +18,11 @@ AlreadyExists
     [Tags]  critical  
     Create Entity  building-minimal.jsonld
     Create Entity  building-minimal.jsonld
+
     Check HTTP Status Code Is  409
     Check HTTP Response Body Json Schema Is  error_response
+
+    Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
 
 *** Keywords ***
 Create Entity  
