@@ -38,9 +38,12 @@ Delete Entity by Id
     Output  response
 
 Create Entity
-    [Arguments]  ${filename}
+    [Arguments]  ${filename}    ${entity_id}
+    ${entity_payload}=    Load Json From File    ${EXECDIR}/data/entities/${filename}
+    ${entity}=    Update Value To Json    ${entity_payload}     $..id   ${entity_id}
+
     &{headers}=  Create Dictionary  Content-Type=application/ld+json
-    ${response}=  POST  ${endpoint}  body=${EXECDIR}/data/entities/${filename}  headers=${headers}
+    ${response}=  POST  ${endpoint}  body=${entity}  headers=${headers}
     Output  request
     Output  response
 

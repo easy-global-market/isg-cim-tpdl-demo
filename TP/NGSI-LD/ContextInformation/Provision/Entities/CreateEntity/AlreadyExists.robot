@@ -1,4 +1,4 @@
- 
+
 *** Settings ***
 Documentation   Check that the IUT refuses to create an entity if one exists with the same identifier 
 Variables   ../../../../../../resources/variables.py
@@ -24,15 +24,15 @@ AlreadyExists
     Delete Entity by Id  urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-92f041b428b9
 
 *** Keywords ***
-Create Entity  
-    [Arguments]  ${filename}    
+Create Entity
+    [Arguments]  ${filename}
     &{headers}=  Create Dictionary  Content-Type=application/ld+json
     ${response}=  POST  ${endpoint}  body=${EXECDIR}/data/entities/${filename}  headers=${headers}
     Output  request
     Output  response
     Set Test Variable  ${response}
 
-Check HTTP Status Code Is 
+Check HTTP Status Code Is
     [Arguments]  ${status}
     ${response_status}=  convert to string  ${response['status']}
     Should Be Equal  ${response_status}  ${status}
@@ -45,7 +45,7 @@ Check HTTP Response Body Json Schema Is
     Log  Json Schema Validation OK
 
 Delete Entity by Id
-    [Arguments]  ${id}    
+    [Arguments]  ${id}
     ${response}=  DELETE  ${endpoint}/${id}
     Output  request
     Output  response

@@ -1,5 +1,5 @@
 {
-    "id": "urn:ngsi-ld:Building:3009ef20-9f62-41f5-bd66-345789442",
+    "id": "urn:ngsi-ld:Building:randomUUID",
     "type": "Building",
     "@context": [
         "https://fiware.github.io/data-models/context.jsonld",
