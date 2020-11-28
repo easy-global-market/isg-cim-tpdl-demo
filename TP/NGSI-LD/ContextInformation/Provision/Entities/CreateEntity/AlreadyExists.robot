@@ -1,4 +1,3 @@
-
 *** Settings ***
 Documentation   Check that the IUT refuses to create an entity if one exists with the same identifier 
 Variables   ../../../../../../resources/variables.py
