@@ -7,6 +7,7 @@ Resource    ../../../../../../resources/JsonUtils.resource
 Library     REST    ${url}
 Library     JSONLibrary
 Library     String
+Library     Collections
 
 *** Variable ***
 ${batch_endpoint}=    entityOperations/create
@@ -14,7 +15,7 @@ ${endpoint}=    entities
 ${building_id_prefix}=  urn:ngsi-ld:Building:
 
 *** Test Case ***
-Create batch of minimal entities
+Create a batch of minimal entities
     [Documentation]  Check that you can create a batch of minimal entities
     [Tags]  critical
 
@@ -28,13 +29,13 @@ Create batch of minimal entities
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Set To  @{expected_entities_ids}
+    Check Response Body Containing Array  @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}
     Delete Entity by Id  ${second_entity_id}
 
-Create batch of entities having only simple properties
+Create a batch of entities having only simple properties
     [Documentation]  Check that you can create a batch of entities having only simple properties
     [Tags]  critical
 
@@ -48,13 +49,13 @@ Create batch of entities having only simple properties
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Set To  @{expected_entities_ids}
+    Check Response Body Containing Array  @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}
     Delete Entity by Id  ${second_entity_id}
 
-Create batch of entities having multiple attributes
+Create a batch of entities having multiple attributes
     [Documentation]  Check that you can create a batch of entities having multiple attributes
     [Tags]  critical
 
@@ -68,7 +69,7 @@ Create batch of entities having multiple attributes
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Set To  @{expected_entities_ids}
+    Check Response Body Containing Array  @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}

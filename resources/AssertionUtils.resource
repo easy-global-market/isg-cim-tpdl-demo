@@ -1,12 +1,18 @@
 *** Keywords ***
 Check Response Status Code Set To
-    [Arguments]  ${status}
+    [Arguments]  ${expected_status}
     ${response_status}=  convert to string  ${response['status']}
-    Should Be Equal  ${response_status}  ${status}
+    Should Be Equal  ${response_status}  ${expected_status}
 
-Check Response Body Set To
-    [Arguments]  @{expected_entities_ids}
-    Should Contain  ${response['body']['success']}  @{expected_entities_ids}
+Check Response Body Containing Array
+    [Arguments]  @{expected_array}
+    Lists Should Be Equal  ${response['body']}  ${expected_array}   ignore_order=True
+
+Check Response Body Containing Batch Operation Result
+    [Arguments]  ${expected_batch_operation_result}
+    @{expected_success}=    Get From Dictionary     ${expected_batch_operation_result}     success
+    @{expected_errors}=    Get From Dictionary     ${expected_batch_operation_result}     errors
+    Lists Should Be Equal  ${response['body']['success']}  ${expected_success}   ignore_order=True
 
 Assert response status code
     [Arguments]     ${code}

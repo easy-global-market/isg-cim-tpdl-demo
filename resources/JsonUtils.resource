@@ -14,3 +14,10 @@ Generate Random Entity Id
     ${entity_id}=    Catenate    ${id_prefix}${random_id}
 
     [return]    ${entity_id}
+
+Create Batch Operation Result
+    [Arguments]    ${success}       ${errors}
+
+    &{batch_operation_result}=      Create Dictionary	success=${success}      errors=${errors}
+
+    [return]    &{batch_operation_result}

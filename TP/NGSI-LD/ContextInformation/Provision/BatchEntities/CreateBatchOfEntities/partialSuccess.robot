@@ -7,6 +7,7 @@ Resource    ../../../../../../resources/JsonUtils.resource
 Library     REST    ${url}
 Library     JSONLibrary
 Library     String
+Library     Collections
 
 Suite Setup      Create Entity  building-minimal-sample.jsonld     urn:ngsi-ld:Building:92f041b428b9
 
@@ -16,8 +17,8 @@ ${endpoint}=    entities
 ${building_id_prefix}=  urn:ngsi-ld:Building:
 
 *** Test Case ***
-Create batch of valid and invalid entities
-    [Documentation]  Check that you can create a batch of valid and invalid entities
+Create a batch of two valid entities and one invalid entity
+    [Documentation]  Check that you can create a batch of two valid entities and one invalid entity
     [Tags]  critical
 
     ${first_entity_id}=     Generate Random Entity Id    ${building_id_prefix}
@@ -29,9 +30,11 @@ Create batch of valid and invalid entities
 
     Batch Create Entities   @{entities_to_be_created}
 
-    @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
+    @{expected_batch_operation_result_success}=  Create List   ${first_entity_id}     ${second_entity_id}
+    @{expected_batch_operation_result_errors}=  Create List   urn:ngsi-ld:Building:92f041b428b9
+    &{expected_batch_operation_result}=  Create Batch Operation Result   ${expected_batch_operation_result_success}     ${expected_batch_operation_result_errors}
     Check Response Status Code Set To  207
-    Check Response Body Set To  @{expected_entities_ids}
+    Check Response Body Containing Batch Operation Result   ${expected_batch_operation_result}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}
