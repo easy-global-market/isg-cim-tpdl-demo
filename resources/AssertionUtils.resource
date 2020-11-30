@@ -4,15 +4,29 @@ Check Response Status Code Set To
     ${response_status}=  convert to string  ${response['status']}
     Should Be Equal  ${response_status}  ${expected_status}
 
-Check Response Body Containing Array
-    [Arguments]  @{expected_array}
-    Lists Should Be Equal  ${response['body']}  ${expected_array}   ignore_order=True
+Check Response Body Containing Array Of URIs set to
+    [Arguments]  @{expected_entities_ids}
+    Lists Should Be Equal  ${expected_entities_ids}        ${response['body']}     ignore_order=True
 
 Check Response Body Containing Batch Operation Result
     [Arguments]  ${expected_batch_operation_result}
-    @{expected_success}=    Get From Dictionary     ${expected_batch_operation_result}     success
-    @{expected_errors}=    Get From Dictionary     ${expected_batch_operation_result}     errors
-    Lists Should Be Equal  ${response['body']['success']}  ${expected_success}   ignore_order=True
+    @{expected_successful_entities_ids}=    Get From Dictionary     ${expected_batch_operation_result}     success
+    @{expected_failed_entities_ids}=    Get From Dictionary     ${expected_batch_operation_result}     errors
+    @{response_errors}=    Get From Dictionary     ${response['body']}     errors
+
+    ${expected_failed_entities_ids_length}=     Get Length  ${expected_failed_entities_ids}
+    ${response_errors_length}=     Get Length  ${response_errors}
+
+    Lists Should Be Equal  ${expected_successful_entities_ids}      ${response['body']['success']}     ignore_order=True
+    Should be Equal as Integers  ${expected_failed_entities_ids_length}  ${response_errors_length}
+    FOR    ${response_error}    IN    @{response_errors}
+        List Should Contain Value       ${expected_failed_entities_ids}     ${response_error['entityId']}
+        Should Not Be Empty     ${response_error['error']}
+    END
+
+Check Response Body Containing Problem Details Element Containing Detail Element
+    [Arguments]     ${response_body}
+    Should Not Be Empty     ${response_body['detail']}
 
 Assert response status code
     [Arguments]     ${code}

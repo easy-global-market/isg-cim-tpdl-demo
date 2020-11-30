@@ -29,7 +29,7 @@ Create a batch of minimal entities
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Containing Array  @{expected_entities_ids}
+    Check Response Body Containing Array Of URIs set to   @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}
@@ -49,7 +49,7 @@ Create a batch of entities having only simple properties
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Containing Array  @{expected_entities_ids}
+    Check Response Body Containing Array Of URIs set to  @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}
@@ -69,7 +69,7 @@ Create a batch of entities having multiple attributes
 
     @{expected_entities_ids}=  Create List   ${first_entity_id}     ${second_entity_id}
     Check Response Status Code Set To  201
-    Check Response Body Containing Array  @{expected_entities_ids}
+    Check Response Body Containing Array Of URIs set to  @{expected_entities_ids}
 
     #TODO call Batch Delete Entities
     Delete Entity by Id  ${first_entity_id}

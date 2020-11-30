@@ -3,18 +3,30 @@ Documentation   Check that you cannot create a batch of entities with an invalid
 Variables   ../../../../../../resources/variables.py
 Resource    ../../../../../../resources/ApiUtils.resource
 Resource    ../../../../../../resources/AssertionUtils.resource
-Library     REST    ${url}
+Library     RequestsLibrary
 Library     JSONLibrary
+Library     OperatingSystem
+
 
 *** Variable ***
 ${batch_endpoint}=    entityOperations/create
 ${endpoint}=    entities
 
 *** Test Case ***
-With empty json document
+With invalid json document
     [Documentation]  Check that you cannot create a batch of entities with an invalid json document
     [Tags]  critical
 
-    Batch Create Entities With File   building-invalid.jsonld
+    Batch Create Entities From File   building-invalid-sample.jsonld
 
     Check Response Status Code Set To  400
+    Check Response Body Containing Problem Details Element Containing Detail Element    ${response}
+
+With empty json document
+    [Documentation]  Check that you cannot create a batch of entities with an empty json document
+    [Tags]  critical
+
+    Batch Create Entities From File   building-empty-sample.jsonld
+
+    Check Response Status Code Set To  400
+    Check Response Body Containing Problem Details Element Containing Detail Element    ${response}
